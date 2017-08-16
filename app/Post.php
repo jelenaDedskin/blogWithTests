@@ -18,6 +18,11 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');   
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
     public static function published()
     {
         return self::where('published', 1)->get();
